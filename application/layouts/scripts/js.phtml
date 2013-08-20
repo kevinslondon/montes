@@ -1,0 +1,9 @@
+<?php
+// Make output a real JavaScript file
+header('Content-type: text/javascript'); // browser will now recognize the file as a valid JS file
+
+// prevent browser from caching
+header('pragma: no-cache');
+header('expires: 0'); // i.e. contents have already expired
+
+echo $this->layout()->content;

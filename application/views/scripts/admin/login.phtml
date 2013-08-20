@@ -1,0 +1,36 @@
+<h2>Admin Login</h2>
+<p>
+   Login using your email and password.
+</p>
+<?php
+/**
+ * @var $form Application_Form_Contact
+ */
+$form = $this->form;
+$form->setAction($this->url());
+
+if($this->errors){
+    print_r($form->getErrors());
+}
+
+$error = '';
+switch($this->loggin_result){
+    case Zend_Auth_Result::FAILURE:
+        $error = 'Sorry, we were not able to log you in';
+        break;
+    case Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID:
+        $error = 'Sorry, your password did not match';
+        break;
+    case Zend_Auth_Result::FAILURE_IDENTITY_NOT_FOUND:
+        $error = 'Sorry, your login was not found';
+}
+
+if($error){
+    echo '<p style="color:red;">'.$error.'</p>';
+}
+
+echo $form;
+
+?>
+
+<p><a href="/admin/forgot">Forgot your password?</a> </p>

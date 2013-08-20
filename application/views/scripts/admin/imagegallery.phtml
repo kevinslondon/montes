@@ -1,0 +1,9 @@
+<p>Images</p>
+
+<?php
+foreach ($this->images as $image) {
+    ?>
+<a href="/admin/addimage?url=<?php echo $this->url?>&amp;id=<?php echo $image->getId()?>"> <img src="/<?php echo $image->getThumb()?> " alt="" border="0" height="133" /></a>
+<?php
+}
+?>

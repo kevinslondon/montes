@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var $content Application_Model_Content
+ */
+echo $this->content_text;
+
+?>
+
+<div id="image_gallery">
+    <?php
+    if ($this->content->getMedia()) {
+        foreach ($this->content->getMedia() as $image) {
+            ?>
+            <img src="/<?php echo $image->getThumb()?> " alt="" class="content_image_valign" height="145"/>
+        <?php
+        }
+    }
+    ?>
+</div>

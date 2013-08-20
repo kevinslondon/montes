@@ -1,0 +1,13 @@
+<?php
+$output = 'var tinyMCEImageList = new Array(';
+$abspath = preg_replace('~^/?(.*)/[^/]+$~', '/$1', $_SERVER['SCRIPT_NAME']);
+
+foreach ($this->images as $image) {
+    $output .= "\n"
+        . '["'. utf8_encode($image->getName()). '", "'
+        . utf8_encode($abspath.$image->getThumb())
+        . '"],';
+}
+$output = substr($output,0,strrpos($output,','));
+$output .= ');';
+echo $output;

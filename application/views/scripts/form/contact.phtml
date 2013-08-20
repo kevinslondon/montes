@@ -1,0 +1,20 @@
+<h2>Contact Us</h2>
+
+<?php
+/**
+ * @var $content Application_Model_Content
+ */
+echo $this->content->getContentText();
+
+/**
+ * @var $form Application_Form_Contact
+ */
+$form = $this->form;
+$form->setAction($this->url());
+
+if($this->errors){
+  //  print_r($form->getErrors());
+}
+echo $form;
+
+?>

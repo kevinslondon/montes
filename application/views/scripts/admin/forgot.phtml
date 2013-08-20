@@ -1,0 +1,26 @@
+<h2>Admin Password Forgot</h2>
+<p>
+    Enter the email address and we'll send you a password reminder.
+</p>
+<?php
+/**
+ * @var $form Application_Form_Forgot
+ */
+$form = $this->form;
+$form->setAction($this->url());
+
+if($this->errors){
+    print_r($form->getErrors());
+}
+
+$error = '';
+
+
+if($error){
+    echo '<p style="color:red;">'.$error.'</p>';
+}
+
+echo $form;
+
+?>
+

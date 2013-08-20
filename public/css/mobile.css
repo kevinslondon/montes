@@ -1,0 +1,181 @@
+/* CSS Document */
+body {
+    padding:0;
+	margin:0;
+    background: #37501C center top;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:1.6em;
+}
+
+#background_layer {
+	position:fixed;
+	width:100%;
+}
+
+#background_layer img {
+	width: 100%;
+}
+
+#container {
+	position:absolute;
+	z-index:2;
+	width:100%;
+}
+
+#allcontent {
+	margin-left:auto;
+	margin-right:auto;
+	width:90%;
+}
+
+
+
+header {
+	float:left;
+    width: 100%;
+	height:168px;
+    background: url(../images/top_banner.png) repeat;
+	margin-top:15px;
+}
+
+header h1 {
+	color:#010101;
+	padding-left: 20px;
+	font-size:2em;
+	margin-bottom:5px;
+}
+
+header h2 {
+    color:#1F3C04;
+    padding-left:20px;
+    font-size:1em;
+    margin-top:0;
+
+}
+
+header p {
+    margin-left: 475px;
+    margin-top: -10px;
+}
+
+header p img {
+    border: 0;
+}
+
+#main_float {
+ 	float:left;
+    width:100%;
+    position: relative;
+    
+
+}
+
+#nav_float {
+    
+
+}
+
+nav {
+	float:left;
+	width:100%;
+	margin-top:10px;
+	padding-left:10px;
+	padding-right:20px;
+	padding-bottom:10px;
+	 background: url(../images/footer_background.png) repeat;
+}
+
+nav ul {
+    
+    padding: 0;
+    margin: 0;
+}
+
+
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-shadow: 2px 10px 10px #8b0000;
+}
+
+nav li.menu_item {
+   list-style: none;
+	display:inline;
+}
+
+nav li.menu_item:after {
+	content:"|";
+}
+
+#main {
+	float:left;
+	width:100%;
+	margin-top:10px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom: 10px;
+	position: relative;
+	background-image: url(../images/content_background.png);
+	background-repeat: repeat;
+}
+
+#main h1 {
+    padding-top: 0;
+}
+
+.content_image {
+	margin-right:5px;
+}
+
+.content_image_valign {
+	vertical-align:text-top;
+}
+
+
+
+footer {
+	float:left;
+	margin-top:5px;
+	width:100%;
+	height:32px;
+    background: url(../images/footer_background.png) repeat;
+    text-align:right;
+	padding-right:10px;
+	padding-top:5px;
+}
+
+.label_col {
+    float: left;
+    width: 150px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.input_col {
+    float: left;
+    width: 220px;
+    margin-bottom: 5px;
+}
+
+.error_col {
+    float: left;
+    width: 200px;
+    margin-bottom: 5px;
+    color: #8b0000;
+}
+
+.input_2cols {
+    margin-bottom: 5px;
+}
+
+.error {
+    border: #8b0000 1px solid;
+}
+
+.error_text {
+    color: #8b0000;
+}
+

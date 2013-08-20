@@ -1,0 +1,50 @@
+<?php
+
+function sort_drop_admin_pages($counter, $sort_orders)
+{
+    $drop = '<select class="move_drop" id="order_' . $counter . '">';
+    foreach ($sort_orders as $s) {
+        $selected = $counter == $s ? 'selected="selected"' : '';
+        $drop .= '<option  value="' . $s . '" ' . $selected . '>' . $s . '</s>';
+    }
+    $drop .= '</select>';
+    return $drop;
+}
+
+?>
+
+<h2>Admin Pages</h2>
+<p><a href="/admin/edit">Create a new page</a></p>
+<form action="" method="get">
+    <ul class="admin_ul">
+        <?php
+        $counter = 1;
+        foreach ($this->menu as $url => $title) {
+            ?>
+            <li class="menu_item">
+                <?php echo sort_drop_admin_pages($counter, $this->orders); ?>
+                <a href="/<?php echo $url ?>" target="_blank"><img src="/images/preview.png"
+                                                                  alt="Preview <?php echo $title; ?>"
+                                                                  border="0"/></a>
+                <a href="/admin/edit?url=<?php echo $url ?>"><img src="/images/edit.png"
+                                                                  alt="Edit <?php echo $title; ?>"
+                                                                  border="0"/></a>
+                <a href="/admin/delete?url=<?php echo $url ?>" class="confirm_delete"><img src="/images/delete.png"
+                                                                    alt="Delete <?php echo $title; ?>"
+                                                                    border="0"/></a> <?php echo $title; ?></li>
+            <?
+            $counter++;
+        } ?>
+    </ul>
+</form>
+
+<script type="text/javascript">
+    $().ready(function () {
+        $('.move_drop').change(function(){
+            var id = $(this).prop('id').replace('order_', '');
+            var url = '/admin/move?current_order='+id+'&new_order='+$(this).val();
+            //alert(url);
+            document.location = url;
+        });
+    });
+</script>

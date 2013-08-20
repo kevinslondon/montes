@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>Montes Negros</title>
+    <?php echo $this->browser_sniffer->isMobile() && !$this-> browser_sniffer->isTablet()? 
+		$this->headLink()->appendStylesheet('/css/mobile.css') :
+		$this->headLink()->appendStylesheet('/css/main.css')
+		 ?>
+
+    <link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("jquery", "1");
+    </script>
+    <script type="text/javascript" src="/js/jquery.lightbox-0.5.js"></script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            
+			$('#main img').each(function(index){
+				var href = $(this).prop('src').replace(/\/thumbs\//, '/web/');
+				$(this).wrap('<a href="'+href+'" class="image_popup" ></a>');
+			});
+			
+			$('a.image_popup').lightBox(); // Select all links in object with gallery ID
+        });
+    </script>
+</head>
+
+<body>
+<div id="background_layer"><img src="<?php echo $this->browser_sniffer->isMobile() && !$this-> browser_sniffer->isTablet()? '/images/mobile_bg.jpg' : '/images/background.jpg'?>" alt="" /></div>
+<div id="container">
+    <div id="allcontent">
+        <header>
+            <div id="header_text">
+                <h1>Casa Montes Negros</h1>
+
+                <h2>Organic Rental Cottage, Walks and Workshops</h2>
+
+                <p><a href="/language?lang=en&amp;url_redirect=<?php echo $this->userAgent()->getServerValue('request_uri') ?>" title="English" ><img src="/images/britain.jpg" /></a>&nbsp;&nbsp;&nbsp;<a href="language?lang=es&amp;url_redirect=<?php echo $this->userAgent()->getServerValue('request_uri') ?>" title="Espa&ntilde;ol" ><img src="/images/espana.jpg" /></a></p>
+            </div>
+
+        </header>
+
+        <div id="main_float">
+            <div id="nav_float">
+                <nav>
+                    <ul>
+                        <?php foreach ($this->menu as $url => $title) { ?>
+                            <li class="menu_item"><a href="/<?php echo $url ?>"><?php echo $title; ?></a></li>
+                        <? } ?>
+                    </ul>
+                </nav>
+
+                <section id="main"><?php echo $this->layout()->content ?></section>
+            </div>
+        </div>
+
+        <footer>&copy;Montes Negros 2012</footer>
+    </div>
+</div>
+</body>
+</html>
